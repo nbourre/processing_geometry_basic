@@ -11,10 +11,7 @@ void setup() {
   size(800, 600);
 
   rectangle = new Rectangle (width / 2, height / 2, random (25, 100), random (25, 100));
-  rectangle.angle = QUARTER_PI / 2.0;
   circle = new PVector();
-
-
 }
 
 
@@ -26,7 +23,7 @@ void draw() {
   circle.x = mouseX;
   circle.y = mouseY;
 
-  rectangle.angle += PI/180;
+  rectangle.incrementAngle(PI/180);
 
   stroke (0);
   fill (0, 0, 200);
@@ -45,6 +42,11 @@ void draw() {
 
   fill (fillC);
   ellipse (circle.x, circle.y, dia, dia);
+  
+  noFill();
+  stroke(75);
+  rectangle.minimumBounds.display();
+  
 
 }
 
@@ -107,4 +109,6 @@ void testFonctions () {
   
   // Trace le point le plus proche
   ellipse (nearestP.x * factor, nearestP.y * factor, 5, 5);
+  
+
 }
